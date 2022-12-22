@@ -8,7 +8,7 @@ public class Officer extends User{
     private int schoolYear;
     private String position;
 
-    public Officer(int memberId, String firstName, String lastName, char gender, String email, int schoolYear, String position) {
+    public Officer(String memberId, String firstName, String lastName, char gender, String email, int schoolYear, String position) {
         super(memberId);
         this.schoolYear = schoolYear;
         this.position = position;

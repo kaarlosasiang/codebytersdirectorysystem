@@ -1,18 +1,18 @@
-
 package codebytersdirectorysystem;
 
 import java.sql.Date;
 
-public class Member extends User{
+public class Member extends User {
+
     private String firstName;
     private String lastName;
-    private char middleInitial;
-    private char gender;
+    private String middleInitial;
+    private String gender;
     private Date dateOfBirth;
     private String cellphoneNumber;
     private String email;
 
-    public Member(int memberId, String firstName, String lastName, char middleInitial, char gender, Date dateOfBirth, String cellphoneNumber, String email) {
+    public Member(String memberId, String firstName, String lastName, String middleInitial, String gender, Date dateOfBirth, String cellphoneNumber, String email) {
         super(memberId);
         this.firstName = firstName;
         this.lastName = lastName;
@@ -22,47 +22,61 @@ public class Member extends User{
         this.cellphoneNumber = cellphoneNumber;
         this.email = email;
     }
-    public void setFirstName(String firstName){
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-    public void setLastName(String lastName){
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    public void setMiddleInitial(char middleInitial){
+
+    public void setMiddleInitial(String middleInitial) {
         this.middleInitial = middleInitial;
     }
-    public void setGender(char gender){
+
+    public void setGender(String gender) {
         this.gender = gender;
     }
-    public void setDateOfBirth(Date dateOfBirth){
+
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-    public void setCellphoneNumber(String cellphoneNumber){
+
+    public void setCellphoneNumber(String cellphoneNumber) {
         this.cellphoneNumber = cellphoneNumber;
     }
-    public void setEmail(String email){
+
+    public void setEmail(String email) {
         this.email = email;
     }
-    public String getFirstName(){
+
+    public String getFirstName() {
         return firstName;
     }
-    public String getLastName(){
+
+    public String getLastName() {
         return lastName;
     }
-    public char getMiddleInitial(){
+
+    public String getMiddleInitial() {
         return middleInitial;
     }
-    public char getGender(){
+
+    public String getGender() {
         return gender;
     }
-    public Date getDateOfBirth(){
+
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
-    public String getCellphoneNumber(){
+
+    public String getCellphoneNumber() {
         return cellphoneNumber;
     }
-    public String getEmail(){
+
+    public String getEmail() {
         return email;
     }
-    
+
 }

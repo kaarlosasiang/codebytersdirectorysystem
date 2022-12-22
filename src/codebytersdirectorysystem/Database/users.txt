@@ -1,1 +1,1 @@
-1,member,Jade Devon,Lore,C.,male,10-06-02,00000000000,jade@test.com
+1,Jade Devon,Lore,C,m,2022-10-06,00000000000,jade@test.com
