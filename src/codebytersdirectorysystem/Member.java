@@ -12,13 +12,13 @@ public class Member extends User{
     private String cellphoneNumber;
     private String email;
 
-    public Member(int memberId, String firstName, String lastName, char middleInitial, char gender, Date dateOfBirDate, String cellphoneNumber, String email) {
+    public Member(int memberId, String firstName, String lastName, char middleInitial, char gender, Date dateOfBirth, String cellphoneNumber, String email) {
         super(memberId);
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleInitial = middleInitial;
         this.gender = gender;
-        this.dateOfBirth = dateOfBirDate;
+        this.dateOfBirth = dateOfBirth;
         this.cellphoneNumber = cellphoneNumber;
         this.email = email;
     }
