@@ -8,17 +8,17 @@ public class Member extends User {
     private String lastName;
     private String middleInitial;
     private String gender;
-    private Date dateOfBirth;
+    private String dateOfBirth;
     private String cellphoneNumber;
     private String email;
 
-    public Member(String memberId, String firstName, String lastName, String middleInitial, String gender, Date dateOfBirth, String cellphoneNumber, String email) {
+    public Member(String memberId, String firstName, String lastName, String middleInitial, String gender, String birthdate, String cellphoneNumber, String email) {
         super(memberId);
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleInitial = middleInitial;
         this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
+        this.dateOfBirth = birthdate;
         this.cellphoneNumber = cellphoneNumber;
         this.email = email;
     }
@@ -39,7 +39,7 @@ public class Member extends User {
         this.gender = gender;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -67,7 +67,7 @@ public class Member extends User {
         return gender;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 

@@ -2,7 +2,7 @@
         Scanner input = new Scanner(System.in);
         String filepath = "C:\\Restaurant_Reservation_System\\RestaurantReservationSystem\\src\\reservations.txt";
 
-//        declaration for the variables with no assigned values yet
+//      declaration for the variables with no assigned values yet
         String name, lname, date, time;
         int adults, childrens, subtotal, no, id = 0;
 

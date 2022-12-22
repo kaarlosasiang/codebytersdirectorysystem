@@ -1,8 +1,10 @@
 
 package codebytersdirectorysystem;
 
-public class User {
-    String memberId;
+import java.io.Serializable;
+
+public class User implements Serializable{
+    private String memberId;
 
     public User(String memberId2){
         this.memberId = memberId2;
