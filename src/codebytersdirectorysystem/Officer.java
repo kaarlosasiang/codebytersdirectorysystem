@@ -8,11 +8,18 @@ public class Officer extends User{
     private int schoolYear;
     private String position;
 
-    public Officer(int memberId, String firstName, String lastName, char gender, String email) {
+    public Officer(int memberId, String firstName, String lastName, char gender, String email, int schoolYear, String position) {
         super(memberId);
+        this.schoolYear = schoolYear;
+        this.position = position;
     }
 
 
     // Getter and setter methods for the fields of the officer
-    
+    public void setSchoolYear(int schoolYear){
+        this.schoolYear = schoolYear;
+    }
+    public void setPosition(String position){
+        this.position = position;
+    }
 }

@@ -7,7 +7,10 @@ public class User {
     public User(int memberId){
         this.memberId = memberId;
     }
-    void setMemberId(int memberId){
+    public void setMemberId(int memberId){
         this.memberId = memberId;
+    }
+    public int getMemberId(){
+        return memberId;
     }
 }

@@ -22,5 +22,47 @@ public class Member extends User{
         this.cellphoneNumber = cellphoneNumber;
         this.email = email;
     }
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
+    }
+    public void setLastName(String lastName){
+        this.lastName = lastName;
+    }
+    public void setMiddleInitial(char middleInitial){
+        this.middleInitial = middleInitial;
+    }
+    public void setGender(char gender){
+        this.gender = gender;
+    }
+    public void setDateOfBirth(Date dateOfBirth){
+        this.dateOfBirth = dateOfBirth;
+    }
+    public void setCellphoneNumber(String cellphoneNumber){
+        this.cellphoneNumber = cellphoneNumber;
+    }
+    public void setEmail(String email){
+        this.email = email;
+    }
+    public String getFirstName(){
+        return firstName;
+    }
+    public String getLastName(){
+        return lastName;
+    }
+    public char getMiddleInitial(){
+        return middleInitial;
+    }
+    public char getGender(){
+        return gender;
+    }
+    public Date getDateOfBirth(){
+        return dateOfBirth;
+    }
+    public String getCellphoneNumber(){
+        return cellphoneNumber;
+    }
+    public String getEmail(){
+        return email;
+    }
     
 }
