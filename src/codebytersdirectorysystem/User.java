@@ -2,15 +2,15 @@
 package codebytersdirectorysystem;
 
 public class User {
-    int memberId;
+    String memberId;
 
-    public User(int memberId){
+    public User(String memberId2){
+        this.memberId = memberId2;
+    }
+    public void setMemberId(String memberId){
         this.memberId = memberId;
     }
-    public void setMemberId(int memberId){
-        this.memberId = memberId;
-    }
-    public int getMemberId(){
+    public String getMemberId(){
         return memberId;
     }
 }
