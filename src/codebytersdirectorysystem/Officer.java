@@ -8,7 +8,7 @@ public class Officer extends User{
     private int schoolYear;
     private String position;
 
-    public Officer(String memberId, String firstName, String lastName, char gender, String email, int schoolYear, String position) {
+    public Officer(String memberId, int schoolYear, String position) {
         super(memberId);
         this.schoolYear = schoolYear;
         this.position = position;
@@ -22,4 +22,11 @@ public class Officer extends User{
     public void setPosition(String position){
         this.position = position;
     }
+    public int getSchoolYear(){
+        return schoolYear;
+    }
+    public String getPosition(){
+        return  position;
+    }
+    
 }

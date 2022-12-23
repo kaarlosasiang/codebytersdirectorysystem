@@ -1,39 +1,31 @@
 package codebytersdirectorysystem;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.ListIterator;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import javax.swing.text.Position;
+
 public class Methods {
 
-    static ArrayList<Member> list = new ArrayList<>();
+    static ArrayList<Member> mList = new ArrayList<>();
+    static ArrayList<Officer> oList = new ArrayList<>();
     static String fileName =  "src/codebytersdirectorysystem/Database/users.txt";
     static Path pathToFile = Paths.get(fileName);
     static Path path = pathToFile.toAbsolutePath();
     static File files = new File(path.toString());
-    //file in which the data will be stored
-    static  ObjectInputStream ois;//will store the user inputted data into the file
-    static ListIterator li;//will list the data stored in the text file
+    // static ListIterator li;//will list the data stored in the text file
 
-    public static void register() {//method for entering data into a file
+    public static void registerMember() {//method for entering data into a file
         
         String memberId, firstName, lastName, middleName, gender, dateOfBirth, cellphoneNumber, email;
         Scanner scan = new Scanner(System.in);
@@ -64,9 +56,9 @@ public class Methods {
         //Stores the data from user input to a file
         try{
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(files));
-            list.add(new Member(memberId, firstName, lastName, middleName, gender, dateOfBirth, cellphoneNumber, email));
+            mList.add(new Member(memberId, firstName, lastName, middleName, gender, dateOfBirth, cellphoneNumber, email));
             // studentList();
-            oos.writeObject(list);
+            oos.writeObject(mList);
             oos.close();
 
         }catch (IOException e){
@@ -77,15 +69,15 @@ public class Methods {
     public static void displayList(){
         if(files.isFile()){//if the file exists will continue to gather its data
             try {
-                ois = new ObjectInputStream(new FileInputStream(files));
-                list = (ArrayList<Member>) ois.readObject();
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(files));
+                mList = (ArrayList<Member>) ois.readObject();
                 ois.close();
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
             System.out.println("*-----STUDENT LISTS-----*");
             //gather the object from the list and display its id, name and grade
-            for(Member ob : list){
+            for(Member ob : mList){
 
                 System.out.println("Member:");
                 System.out.println("Id: " + ob.getMemberId());
@@ -101,5 +93,30 @@ public class Methods {
         }
         else//file not found exemption
             System.out.println("File not found!");
+    }
+    public static void addOfficer(){
+        String memberId, position;
+        int schoolYear;
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Enter id: ");
+        memberId = scan.nextLine();
+        
+        System.out.print("Enter schoolyear: ");
+        schoolYear = scan.nextInt();
+
+        System.out.print("Enter position: ");
+        position = scan.nextLine();
+        //Stores the data from user input to a file
+        try{
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(files));
+            oList.add(new Officer(memberId, schoolYear, position));
+            // studentList();
+            oos.writeObject(oList);
+            oos.close();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }

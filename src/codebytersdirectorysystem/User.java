@@ -3,7 +3,7 @@ package codebytersdirectorysystem;
 
 import java.io.Serializable;
 
-public class User implements Serializable{
+abstract class User implements Serializable{
     private String memberId;
 
     public User(String memberId2){
@@ -15,4 +15,5 @@ public class User implements Serializable{
     public String getMemberId(){
         return memberId;
     }
+  
 }

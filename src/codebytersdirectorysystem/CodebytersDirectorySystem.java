@@ -1,26 +1,6 @@
 package codebytersdirectorysystem;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.nio.file.*;
-import static java.nio.file.StandardOpenOption.APPEND;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Properties;
 import java.util.Scanner;
-import java.util.StringTokenizer;
-
-import javax.swing.plaf.synth.Region;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.sql.Date;
 
 public class CodebytersDirectorySystem {
 
@@ -35,17 +15,25 @@ public class CodebytersDirectorySystem {
                             
                                 System Menu
                                 *--------------------------------------*  
-                                a. Register
-                                b. View Members
-                                c. Exit
+                                a. Register member
+                                b. Add officer
+                                c. Display members
+                                d. Display officers
+                                e. Display Female 
+                                f. Display Male
+                                g. Exit
                                 """);
             System.out.print("Enter option: ");
             char operator = scan.next().charAt(0);
 
             switch (operator) {
-                case 'a' -> Methods.register();
-                case 'b' -> Methods.displayList();
-                case 'c' -> {
+                case 'a' -> Methods.registerMember();
+                case 'b' -> Methods.addOfficer();
+                case 'c' -> Methods.displayList();
+                case 'd' -> System.out.println("Sample");
+                case 'e' -> System.out.println("Sample");
+                case 'f' -> System.out.println("Sample");
+                case 'g' -> {
                     loop = "no";
                     System.out.println("Program Terminated");
                 }
