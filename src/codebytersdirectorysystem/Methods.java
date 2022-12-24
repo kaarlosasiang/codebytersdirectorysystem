@@ -63,7 +63,7 @@ public class Methods {
 
             switch(option){
                 case "a" ->
-                    member.deleteList();
+                    System.out.println("Sample");
                 case "b" -> 
                     System.out.println("Sample");
             }
