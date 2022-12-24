@@ -90,12 +90,12 @@ public class Member extends User {
         newLastName = sc.nextLine();
         System.out.print("Enter New Middle Initial: ");
         newMiddleInitial = sc.nextLine();
-        System.out.print("Enter New Gender: ");
+        System.out.print("Enter New Gender (male/female): ");
         newGender = sc.nextLine();
-        System.out.print("Enter New Birth Day: ");
-        newBirthDay = sc.nextLine();
         System.out.print("Enter New Birth Month: ");
         newBirthMonth = sc.nextLine();
+        System.out.print("Enter New Birth Day: ");
+        newBirthDay = sc.nextLine();
         System.out.print("Enter New Birth Year: ");
         newBirthYear = sc.nextLine();
         System.out.print("Enter New Cellphone Number: ");
@@ -103,7 +103,7 @@ public class Member extends User {
         System.out.print("Enter New Email: ");
         newEmail = sc.nextLine();
 
-        String newBirthDate = newBirthDay + "-" + newBirthMonth + "-" + newBirthYear;
+        String newBirthDate = newBirthMonth + "-" + newBirthDay + "-" + newBirthYear;
         String id = "";
         String firstName = "";
         String lastName = "";
@@ -170,8 +170,8 @@ public class Member extends User {
         System.out.print("Middle Initial: ");
         middleInitial = sc.nextLine();
 
-        System.out.print("Gender: ");
-        gender = sc.nextLine();
+        System.out.print("Gender (male/female): ");
+        gender = sc.nextLine().toLowerCase();
 
         System.out.print("Birth Month: ");
         birthMonth = sc.nextLine();
@@ -260,6 +260,92 @@ public class Member extends User {
             System.out.println("Date of Birth: " + member.getDateOfBirth());
             System.out.println("Cellphone: " + member.getCellphoneNumber());
             System.out.println("Email: " + member.getEmail());
+
+        }
+    }
+
+    public static void displayFemaleMembers() {
+        String firstName, middleInitial, lastName, gender, dateOfBirth, cellNumber, email;
+        int id;
+
+        try {
+            Path path = Paths.get("src/codebytersdirectorysystem/Database/members.txt").toAbsolutePath();
+            Scanner sc = new Scanner(path);
+            StringTokenizer token = null;
+
+            while (sc.hasNextLine()) {
+                token = new StringTokenizer(sc.nextLine(), ",");
+                id = Integer.parseInt(token.nextToken());
+                firstName = token.nextToken();
+                lastName = token.nextToken();
+                middleInitial = token.nextToken();
+                gender = token.nextToken();
+                dateOfBirth = token.nextToken();
+                cellNumber = token.nextToken();
+                email = token.nextToken();
+                Member member = new Member(id, firstName, lastName, middleInitial, gender, dateOfBirth, cellNumber, email);
+                list.add(member);
+            }
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //will iterate all objects in the array
+        System.out.println("*-----Female Members-----*");
+        for (Member member : list) {
+            if (member.getGender().equals("female")) {
+                System.out.println("");
+                System.out.println("ID: " + member.getMemberId());
+                System.out.println("Name: " + member.getFirstName() + " " + member.getMiddleInitial() + " " + member.getLastName());
+                System.out.println("Gender: " + member.getGender());
+                System.out.println("Date of Birth: " + member.getDateOfBirth());
+                System.out.println("Cellphone: " + member.getCellphoneNumber());
+                System.out.println("Email: " + member.getEmail());
+            }
+
+        }
+    }
+
+    public static void displayMaleMembers() {
+        String firstName, middleInitial, lastName, gender, dateOfBirth, cellNumber, email;
+        int id;
+
+        try {
+            Path path = Paths.get("src/codebytersdirectorysystem/Database/members.txt").toAbsolutePath();
+            Scanner sc = new Scanner(path);
+            StringTokenizer token = null;
+
+            while (sc.hasNextLine()) {
+                token = new StringTokenizer(sc.nextLine(), ",");
+                id = Integer.parseInt(token.nextToken());
+                firstName = token.nextToken();
+                lastName = token.nextToken();
+                middleInitial = token.nextToken();
+                gender = token.nextToken();
+                dateOfBirth = token.nextToken();
+                cellNumber = token.nextToken();
+                email = token.nextToken();
+                Member member = new Member(id, firstName, lastName, middleInitial, gender, dateOfBirth, cellNumber, email);
+                list.add(member);
+            }
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //will iterate all objects in the array
+        System.out.println("*-----Male Members-----*");
+        for (Member member : list) {
+            if (member.getGender().equals("male")) {
+                System.out.println("");
+                System.out.println("ID: " + member.getMemberId());
+                System.out.println("Name: " + member.getFirstName() + " " + member.getMiddleInitial() + " " + member.getLastName());
+                System.out.println("Gender: " + member.getGender());
+                System.out.println("Date of Birth: " + member.getDateOfBirth());
+                System.out.println("Cellphone: " + member.getCellphoneNumber());
+                System.out.println("Email: " + member.getEmail());
+            }
 
         }
     }

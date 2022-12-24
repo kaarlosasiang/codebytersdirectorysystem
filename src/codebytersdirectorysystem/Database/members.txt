@@ -1,6 +1,7 @@
-1,Kaarlo,Sasiang,P,male,01-14-2003,09484244692,karloruy.sasiang@dorsu.edu.ph
+1,Kaarlo Ruy,Sasiang,P,male,01-14-2003,09484244692,test@test.com
 2,Clarence,Japinan,L,male,10-09-2003,09090909090,clarence.japinan@dorsu.edu.ph
 3,Lester,Dagansina,D,male,05-30-2002,09090909090,lester.dagansina@dorsu.edu.ph
-4,Rogee,Alamis,S,F,10-10-2010,092387,rog@ee
-5,Jade,Lore,D,Male,01-21-2001,09128764,lore@devon
+4,Rogee,Alamis,S,female,10-10-2010,092387,rog@ee
+5,Jade,Lore,D,male,01-21-2001,09128764,lore@devon
 6,Danver,Designs,V,male,02-14-1980,09090909090,danver.designs@gmail.com
+7,Jake,Cuenca,D,male,09-25-1985,09090909090,jakecuenca@gmail.com

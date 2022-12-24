@@ -8,8 +8,9 @@ public class Methods {
         Scanner sc = new Scanner(System.in);
         System.out.print("""
                         Enter:
-                        a. Member
-                        b. Officer
+                        a. Members
+                        b. Officers
+
                         """);
         String option = sc.nextLine().toLowerCase();
 
@@ -25,8 +26,10 @@ public class Methods {
         Scanner sc = new Scanner(System.in);
         System.out.print("""
                             Enter:
-                            a. Member
-                            b. Officer
+                            a. Members
+                            b. Female Members
+                            c. Male Members
+                            d. Officers
                             """);
         String option = sc.nextLine().toLowerCase();
 
@@ -34,6 +37,10 @@ public class Methods {
             case "a" ->
                 Member.displayMembers();
             case "b" ->
+                Member.displayFemaleMembers();
+            case "c" ->
+                Member.displayMaleMembers();
+            case "d" ->
                 Officer.displayOfficers();
         }
     }
@@ -55,25 +62,24 @@ public class Methods {
         }
     }
 
-    public static void deleteList() {
-        Member member = new Member(0, null, null, null, null, null, null, null);
-        Scanner sc = new Scanner(System.in);
-        System.out.print("""
-                            Enter:
-                            a. Member
-                            b. Officer
-                            """);
-        String option = sc.nextLine().toLowerCase();
-
-        switch (option) {
-            case "a" ->
-                System.out.println("Sample");
-            case "b" ->
-                System.out.println("Sample");
-        }
-
-    }
-
+//    public static void deleteList() {
+//        Member member = new Member(0, null, null, null, null, null, null, null);
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("""
+//                            Enter:
+//                            a. Member
+//                            b. Officer
+//                            """);
+//        String option = sc.nextLine().toLowerCase();
+//
+//        switch (option) {
+//            case "a" ->
+//                System.out.println("Sample");
+//            case "b" ->
+//                System.out.println("Sample");
+//        }
+//
+//    }
     public static void updateList() {
         Scanner sc = new Scanner(System.in);
         System.out.print("""

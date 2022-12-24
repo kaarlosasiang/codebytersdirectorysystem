@@ -14,11 +14,10 @@ public class CodebytersDirectorySystem {
 
                                 *----------------System Menu---------------*
                                 a -> Add Member/Officer
-                                b -> Display Member/Officer
+                                b -> Display List of Members/Officers
                                 c -> Search Member/Officer
-                                d -> Delete Member/Officer
-                                e -> Update Member/Officer
-                                f -> Exit
+                                d -> Update Member/Officer
+                                e -> Exit
                                 """);
             System.out.print("Enter option: ");
             char operator = scan.next().charAt(0);
@@ -31,10 +30,8 @@ public class CodebytersDirectorySystem {
                 case 'c' ->
                     Methods.searchList();
                 case 'd' ->
-                    Methods.deleteList();
-                case 'e' ->
                     Methods.updateList();
-                case 'f' -> {
+                case 'e' -> {
                     isContinue = false;
                     System.out.println("Program Terminated");
                 }
