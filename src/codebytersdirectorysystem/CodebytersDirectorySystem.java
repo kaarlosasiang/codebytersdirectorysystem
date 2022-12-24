@@ -26,17 +26,17 @@ public class CodebytersDirectorySystem {
 
             switch (operator) {
                 case 'a' ->
-                    Methods.addMember();
+                    Member.addMember();
                 case 'b' ->
-                    System.out.println("Sample");
+                    Officer.addOfficer();
                 case 'c' ->
-                    Methods.displayMembers();
+                    Member.displayMembers();
                 case 'd' ->
-                    Methods.displayOfficers();
+                    Officer.displayOfficers();
                 case 'e' ->
-                    System.out.println("Sample");
+                    Member.searchMember();
                 case 'f' ->
-                    System.out.println("Sample");
+                    Officer.searchOfficer();
                 case 'g' -> {
                     isContinue = false;
                     System.out.println("Program Terminated");
@@ -46,5 +46,5 @@ public class CodebytersDirectorySystem {
             }
         } while (isContinue);
     }
-
+    
 }

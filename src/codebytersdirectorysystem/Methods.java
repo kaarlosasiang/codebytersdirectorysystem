@@ -1,26 +1,6 @@
 package codebytersdirectorysystem;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import static java.nio.file.StandardOpenOption.APPEND;
 import java.util.ArrayList;
-import java.util.ListIterator;
-import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class Methods {
 
@@ -199,133 +179,133 @@ public class Methods {
 //            System.out.println("File does not exists!");
 //        }
 //    }
-    public static void addMember() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("First Name: ");
-        firstName = sc.nextLine();
+    // public static void addMember() {
+    //     Scanner sc = new Scanner(System.in);
+    //     System.out.print("First Name: ");
+    //     firstName = sc.nextLine();
 
-        System.out.print("Last Name: ");
-        lastName = sc.nextLine();
+    //     System.out.print("Last Name: ");
+    //     lastName = sc.nextLine();
 
-        System.out.print("Middle Initial: ");
-        middleInitial = sc.nextLine();
+    //     System.out.print("Middle Initial: ");
+    //     middleInitial = sc.nextLine();
 
-        System.out.print("Gender: ");
-        gender = sc.nextLine();
+    //     System.out.print("Gender: ");
+    //     gender = sc.nextLine();
 
-        System.out.print("Date of Birth: ");
-        dateOfBirth = sc.nextLine();
+    //     System.out.print("Date of Birth: ");
+    //     dateOfBirth = sc.nextLine();
 
-        System.out.print("Cellphone Number: ");
-        cellNumber = sc.nextLine();
+    //     System.out.print("Cellphone Number: ");
+    //     cellNumber = sc.nextLine();
 
-        System.out.print("Email: ");
-        email = sc.nextLine();
-        try {
-            Path path = Paths.get("src/codebytersdirectorysystem/Database/members.txt").toAbsolutePath();
-            OutputStream output = new BufferedOutputStream(Files.newOutputStream(path, APPEND));
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(output));
-            InputStream inputs = Files.newInputStream(path);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputs));
+    //     System.out.print("Email: ");
+    //     email = sc.nextLine();
+    //     try {
+    //         Path path = Paths.get("src/codebytersdirectorysystem/Database/members.txt").toAbsolutePath();
+    //         OutputStream output = new BufferedOutputStream(Files.newOutputStream(path, APPEND));
+    //         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(output));
+    //         InputStream inputs = Files.newInputStream(path);
+    //         BufferedReader reader = new BufferedReader(new InputStreamReader(inputs));
 
-            String line;
-            int id = 1;
-            while ((line = reader.readLine()) != null) {
-                StringTokenizer stn = new StringTokenizer(line, ",");
-                String[] members = line.split(","); // returns an array of user data from the text file
+    //         String line;
+    //         int id = 1;
+    //         while ((line = reader.readLine()) != null) {
+    //             StringTokenizer stn = new StringTokenizer(line, ",");
+    //             String[] members = line.split(","); // returns an array of user data from the text file
 
-                id = Integer.parseInt(members[0]);
-                id++;
+    //             id = Integer.parseInt(members[0]);
+    //             id++;
 
-            }
+    //         }
 
-            writer.write(id + "," + firstName + "," + lastName + ","
-                    + middleInitial + "," + gender + "," + dateOfBirth + ","
-                    + cellNumber + "," + email);
-            writer.newLine();
-            System.out.println(ANSI_GREEN + "Member Added!" + ANSI_RESET);
-            writer.close();
-            output.close();
+    //         writer.write(id + "," + firstName + "," + lastName + ","
+    //                 + middleInitial + "," + gender + "," + dateOfBirth + ","
+    //                 + cellNumber + "," + email);
+    //         writer.newLine();
+    //         System.out.println(ANSI_GREEN + "Member Added!" + ANSI_RESET);
+    //         writer.close();
+    //         output.close();
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    //     } catch (Exception e) {
+    //         System.out.println(e.getMessage());
+    //     }
 
-    }
+    // }
 
-    public static void displayMembers() {
+    // public static void displayMembers(){
+       
+    //     try {
+    //         Path path = Paths.get("src/codebytersdirectorysystem/Database/members.txt").toAbsolutePath();
+    //         OutputStream output = new BufferedOutputStream(Files.newOutputStream(path, APPEND));
+    //         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(output));
+    //         InputStream inputs = Files.newInputStream(path);
+    //         BufferedReader reader = new BufferedReader(new InputStreamReader(inputs));
+    //         String line;
 
-        try {
-            Path path = Paths.get("src/codebytersdirectorysystem/Database/members.txt").toAbsolutePath();
-            OutputStream output = new BufferedOutputStream(Files.newOutputStream(path, APPEND));
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(output));
-            InputStream inputs = Files.newInputStream(path);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputs));
-            String line;
+    //         // while ((line = reader.readLine()) != null) {
+    //         //     StringTokenizer stn = new StringTokenizer(line, ",");
+    //         //     String[] user = line.split(","); // returns an array of user data from the text file
 
-            while ((line = reader.readLine()) != null) {
-                StringTokenizer stn = new StringTokenizer(line, ",");
-                String[] user = line.split(","); // returns an array of user data from the text file
+    //         //     System.out.println("");
+    //         //     System.out.println("ID: " + user[0]);
+    //         //     System.out.println("Name: " + user[1] + " " + user[3] + ". " + user[2]);
+    //         //     System.out.println("Gender: " + user[4]);
+    //         //     System.out.println("Date of Birth: " + user[5]);
+    //         //     System.out.println("Cellphone Number: " + user[6]);
+    //         //     System.out.println("Email: " + user[7]);
 
-                System.out.println("");
-                System.out.println("ID: " + user[0]);
-                System.out.println("Name: " + user[1] + " " + user[3] + ". " + user[2]);
-                System.out.println("Gender: " + user[4]);
-                System.out.println("Date of Birth: " + user[5]);
-                System.out.println("Cellphone Number: " + user[6]);
-                System.out.println("Email: " + user[7]);
+    //         // }
 
-            }
+    //     } catch (Exception e) {
+    //         System.out.println(e.getMessage());
+    //     }
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    // }
 
-    }
+    // public static void displayOfficers() {
 
-    public static void displayOfficers() {
+    //     try {
+    //         Path path = Paths.get("src/codebytersdirectorysystem/Database/officers.txt").toAbsolutePath();
+    //         OutputStream output = new BufferedOutputStream(Files.newOutputStream(path, APPEND));
+    //         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(output));
+    //         InputStream inputs = Files.newInputStream(path);
+    //         BufferedReader reader = new BufferedReader(new InputStreamReader(inputs));
+    //         String line;
 
-        try {
-            Path path = Paths.get("src/codebytersdirectorysystem/Database/officers.txt").toAbsolutePath();
-            OutputStream output = new BufferedOutputStream(Files.newOutputStream(path, APPEND));
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(output));
-            InputStream inputs = Files.newInputStream(path);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputs));
-            String line;
+    //         while ((line = reader.readLine()) != null) {
+    //             StringTokenizer stn = new StringTokenizer(line, ",");
+    //             String[] user = line.split(","); // returns an array of user data from the text file
 
-            while ((line = reader.readLine()) != null) {
-                StringTokenizer stn = new StringTokenizer(line, ",");
-                String[] user = line.split(","); // returns an array of user data from the text file
+    //             System.out.println("");
+    //             System.out.println("S.Y.: " + user[0]);
+    //             System.out.println("ID: " + user[1]);
+    //             System.out.println("Position: " + user[2]);
+    //             System.out.println("Name: " + user[3] + " " + user[5] + ". " + user[4]);
+    //             System.out.println("Gender: " + user[6]);
+    //             System.out.println("Date of Birth: " + user[7]);
+    //             System.out.println("Cellphone Number: " + user[8]);
+    //             System.out.println("Email: " + user[9]);
 
-                System.out.println("");
-                System.out.println("S.Y.: " + user[0]);
-                System.out.println("ID: " + user[1]);
-                System.out.println("Position: " + user[2]);
-                System.out.println("Name: " + user[3] + " " + user[5] + ". " + user[4]);
-                System.out.println("Gender: " + user[6]);
-                System.out.println("Date of Birth: " + user[7]);
-                System.out.println("Cellphone Number: " + user[8]);
-                System.out.println("Email: " + user[9]);
+    //         }
 
-            }
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    // }
 
-    }
+    // public static void printUser(String[] user, String usertype) {
+    //     if ("member".equals(usertype)) {
+    //         if ("n/a".equals(user[0])) {
 
-    public static void printUser(String[] user, String usertype) {
-        if ("member".equals(usertype)) {
-            if ("n/a".equals(user[0])) {
+    //         }
 
-            }
+    //     } else if ("officer".equals(usertype)) {
+    //         if (!"n/a".equals(user[0])) {
 
-        } else if ("officer".equals(usertype)) {
-            if (!"n/a".equals(user[0])) {
+    //         }
+    //     }
 
-            }
-        }
-
-    }
+    // }
 }

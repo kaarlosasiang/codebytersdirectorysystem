@@ -1,2 +1,5 @@
 1,Kaarlo,Sasiang,P,male,01-14-2003,09484244692,karloruy.sasiang@dorsu.edu.ph
 2,Clarence,Japinan,L,male,10-09-2003,09090909090,clarence.japinan@dorsu.edu.ph
+3,Clarence,Japinan,S,M,06-27-2003,0912345678,japinan@japinan
+4,Rogee ,Alamis,S,F,10-10-2010,092387,rog@ee
+5,Jade,Lore,D,Male,01-21-2001,09128764,lore@devon

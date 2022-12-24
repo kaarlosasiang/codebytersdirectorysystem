@@ -4,19 +4,26 @@ package codebytersdirectorysystem;
 import java.io.Serializable;
 
 abstract class User implements Serializable{
-    private String memberId;
+    private int memberId;
     private String firstName;
     private String lastName;
     private String middleInitial;
 
-    public User(String memberId, String firstName, String lastName, String middleInitial){
+    public User(){
+        this.memberId = 0;
+        this.firstName = "Null";
+        this.lastName = "Null";
+        this.middleInitial = "Null";
+    }
+
+    public User(int memberId, String firstName, String lastName, String middleInitial){
         this.memberId = memberId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleInitial = middleInitial;
     }
-    public void setMemberId(String memberId){
-        this.memberId = memberId;
+    public void setMemberId(int id){
+        this.memberId = id;
     }
     public void setFirstName(String firstName){
         this.firstName = firstName;
@@ -27,7 +34,7 @@ abstract class User implements Serializable{
     public void setMiddleInitial(String middleInitial){
         this.middleInitial = middleInitial;
     }
-    public String getMemberId(){
+    public int getMemberId(){
         return memberId;
     }
     public String getFirstName(){
@@ -39,5 +46,5 @@ abstract class User implements Serializable{
     public String getMiddleInitial(){
         return middleInitial;
     }
-    
-}
+    public abstract void updateList();
+}   

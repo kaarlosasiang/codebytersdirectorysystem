@@ -1,2 +1,3 @@
-2022-2023,1,President,Kaarlo,Sasiang,P,male,01-14-2003,09484244692,karloruy.sasiang@dorsu.edu.ph
-2022-2023,2,Secretary,Clarence,Japinan,L,male,10-09-2003,09090909090,clarence.japinan@dorsu.edu.ph
+1,Clarence,Japinan,S,2,President
+2,Kaarlo,Sasiang,P,2,Vice President
+3,Romer,Delatado,S,1,Secretary
