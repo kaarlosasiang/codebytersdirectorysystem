@@ -16,11 +16,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.ListIterator;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-import javax.swing.text.Position;
 
 import static java.nio.file.StandardOpenOption.APPEND;
 
@@ -204,5 +202,11 @@ public class Officer extends User{
          }
 
     
+    }
+
+    @Override
+    public void deleteList() {
+        // TODO Auto-generated method stub
+        
     }
 }
