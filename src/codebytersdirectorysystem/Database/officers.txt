@@ -1,3 +1,3 @@
-1,Clarence,Japinan,S,2,President
-2,Kaarlo,Sasiang,P,2,Vice President
-3,Romer,Delatado,S,1,Secretary
+1,Clarence,Japinan,S,2023-2024,President
+2,Kaarlo Ruy,Sasiang,P,2023-2024,Gwapo lang
+3,Romer,Delatado,S,2022-2023,Secretary

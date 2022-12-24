@@ -13,12 +13,12 @@ public class CodebytersDirectorySystem {
             System.out.println("""
 
                                 *----------------System Menu---------------*
-                                a. Add list
-                                b. Display list
-                                c. Search list
-                                d. Delete list
-                                e. Update list
-                                f. Exit
+                                a -> Add Member/Officer
+                                b -> Display Member/Officer
+                                c -> Search Member/Officer
+                                d -> Delete Member/Officer
+                                e -> Update Member/Officer
+                                f -> Exit
                                 """);
             System.out.print("Enter option: ");
             char operator = scan.next().charAt(0);
@@ -29,7 +29,7 @@ public class CodebytersDirectorySystem {
                 case 'b' ->
                     Methods.displayList();
                 case 'c' ->
-                    Methods.searchList();   
+                    Methods.searchList();
                 case 'd' ->
                     Methods.deleteList();
                 case 'e' ->
@@ -43,5 +43,5 @@ public class CodebytersDirectorySystem {
             }
         } while (isContinue);
     }
-    
+
 }

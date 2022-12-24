@@ -3,11 +3,14 @@ package codebytersdirectorysystem;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,11 +25,13 @@ public class Member extends User {
     private String dateOfBirth;
     private String cellphoneNumber;
     private String email;
-    
+
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_GREEN = "\u001B[32m";
+    private static Scanner x;
     //Initialize and array list for storing members
     private static ArrayList<Member> list = new ArrayList<Member>();
+
     //Member constructor
     public Member(int memberId, String firstName, String lastName, String middleInitial, String gender, String dateOfBirth, String cellphoneNumber, String email) {
         super(memberId, firstName, lastName, middleInitial);
@@ -35,6 +40,7 @@ public class Member extends User {
         this.cellphoneNumber = cellphoneNumber;
         this.email = email;
     }
+
     //getters and setters for member class
     public void setGender(String gender) {
         this.gender = gender;
@@ -68,20 +74,92 @@ public class Member extends User {
         return email;
     }
 
-    @Override
-    public void updateList() {
-        // TODO Auto-generated method stub
-        
+    public static void updateList() {
+        Scanner sc = new Scanner(System.in);
+        String tempFile = "src/codebytersdirectorysystem/Database/temp.txt";
+        String filePath = "src/codebytersdirectorysystem/Database/members.txt";
+        File oldFile = new File(filePath);
+        File newFile = new File(tempFile);
+
+        String editTerm, newFirstName, newLastName, newMiddleInitial, newGender, newBirthDay, newBirthMonth, newBirthYear, newCellNum, newEmail;
+        System.out.print("Enter ID: ");
+        editTerm = sc.nextLine();
+        System.out.print("Enter New First Name: ");
+        newFirstName = sc.nextLine();
+        System.out.print("Enter New Last Name: ");
+        newLastName = sc.nextLine();
+        System.out.print("Enter New Middle Initial: ");
+        newMiddleInitial = sc.nextLine();
+        System.out.print("Enter New Gender: ");
+        newGender = sc.nextLine();
+        System.out.print("Enter New Birth Day: ");
+        newBirthDay = sc.nextLine();
+        System.out.print("Enter New Birth Month: ");
+        newBirthMonth = sc.nextLine();
+        System.out.print("Enter New Birth Year: ");
+        newBirthYear = sc.nextLine();
+        System.out.print("Enter New Cellphone Number: ");
+        newCellNum = sc.nextLine();
+        System.out.print("Enter New Email: ");
+        newEmail = sc.nextLine();
+
+        String newBirthDate = newBirthDay + "-" + newBirthMonth + "-" + newBirthYear;
+        String id = "";
+        String firstName = "";
+        String lastName = "";
+        String middleInitial = "";
+        String gender = "";
+        String birthDate = "";
+        String cellNum = "";
+        String email = "";
+
+        try {
+            FileWriter fw = new FileWriter(tempFile, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+            x = new Scanner(new File(filePath));
+            x.useDelimiter("[,\n]");
+
+            while (x.hasNext()) {
+                id = x.next();
+                firstName = x.next();
+                lastName = x.next();
+                middleInitial = x.next();
+                gender = x.next();
+                birthDate = x.next();
+                cellNum = x.next();
+                email = x.next();
+
+                if (id.equals(editTerm)) {
+                    pw.println(id + "," + newFirstName + "," + newLastName + "," + newMiddleInitial + "," + newGender + "," + newBirthDate + "," + newCellNum + "," + newEmail);
+                } else {
+                    pw.println(id + "," + firstName + "," + lastName + "," + middleInitial + "," + gender + "," + birthDate + "," + cellNum + "," + email);
+                }
+            }
+            x.close();
+            pw.flush();
+            pw.close();
+            oldFile.delete();
+            File dump = new File(filePath);
+            newFile.renameTo(dump);
+            System.out.println("Member Successfully Edited!");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error");
+        }
+
     }
+
     //
-    public String toString(){
+    public String toString() {
         return getMemberId() + "," + getFirstName() + "," + getMiddleInitial() + "," + getLastName() + "," + gender + "," + dateOfBirth + "," + cellphoneNumber + "," + email;
     }
+
     //Add member method
     public static void addMember() {
-        String firstName, middleInitial, lastName, gender, dateOfBirth, cellNumber, email;
+        String firstName, middleInitial, lastName, gender, birthday, birthMonth, birthYear, BirthDate, cellNumber, email;
         int id;
-        
+
         Scanner sc = new Scanner(System.in);
         System.out.print("First Name: ");
         firstName = sc.nextLine();
@@ -95,8 +173,16 @@ public class Member extends User {
         System.out.print("Gender: ");
         gender = sc.nextLine();
 
-        System.out.print("Date of Birth: ");
-        dateOfBirth = sc.nextLine();
+        System.out.print("Birth Month: ");
+        birthMonth = sc.nextLine();
+
+        System.out.print("Birth Day: ");
+        birthday = sc.nextLine();
+
+        System.out.print("Birth Year: ");
+        birthYear = sc.nextLine();
+
+        BirthDate = birthMonth + "-" + birthday + "-" + birthYear;
 
         System.out.print("Cellphone Number: ");
         cellNumber = sc.nextLine();
@@ -122,7 +208,7 @@ public class Member extends User {
             }
 
             writer.write(id + "," + firstName + "," + lastName + ","
-                    + middleInitial + "," + gender + "," + dateOfBirth + ","
+                    + middleInitial + "," + gender + "," + BirthDate + ","
                     + cellNumber + "," + email);
             writer.newLine();
             System.out.println(ANSI_GREEN + "Member Added!" + ANSI_RESET);
@@ -134,18 +220,19 @@ public class Member extends User {
         }
 
     }
+
     //display member method
-    public static void displayMembers(){
+    public static void displayMembers() {
 
         String firstName, middleInitial, lastName, gender, dateOfBirth, cellNumber, email;
         int id;
-        
+
         try {
             Path path = Paths.get("src/codebytersdirectorysystem/Database/members.txt").toAbsolutePath();
             Scanner sc = new Scanner(path);
             StringTokenizer token = null;
 
-            while(sc.hasNextLine()){
+            while (sc.hasNextLine()) {
                 token = new StringTokenizer(sc.nextLine(), ",");
                 id = Integer.parseInt(token.nextToken());
                 firstName = token.nextToken();
@@ -158,14 +245,14 @@ public class Member extends User {
                 Member member = new Member(id, firstName, lastName, middleInitial, gender, dateOfBirth, cellNumber, email);
                 list.add(member);
             }
-          
+
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
         //will iterate all objects in the array
         System.out.println("*-----MEMBERS-----*");
-        for(Member member : list){
+        for (Member member : list) {
             System.out.println("");
             System.out.println("ID: " + member.getMemberId());
             System.out.println("Name: " + member.getFirstName() + " " + member.getMiddleInitial() + " " + member.getLastName());
@@ -176,34 +263,33 @@ public class Member extends User {
 
         }
     }
-    public static void searchMember(){
-      
+
+    public static void searchMember() {
+
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter ID: ");
         int searchId = sc.nextInt();
-        
-      
 
-         // Flag to track if the ID was found
-         boolean idFound = false;
- 
-         try {
+        // Flag to track if the ID was found
+        boolean idFound = false;
+
+        try {
             //File directory
             Path path = Paths.get("src/codebytersdirectorysystem/Database/members.txt").toAbsolutePath();
             InputStream inputs = Files.newInputStream(path);
-             // Open the file for reading
+            // Open the file for reading
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputs));
- 
-             // Read each line of the file
-             String line = reader.readLine();
-             while (line != null) {
-                 // Split the line into fields separated by a comma
-                 String[] fields = line.split(",");
-              
-                 // Check if the first field (the ID) matches the search ID
-                 if (fields[0].equals(Integer.toString(searchId))) {
-                     // ID was found, set the flag and print the line
+
+            // Read each line of the file
+            String line = reader.readLine();
+            while (line != null) {
+                // Split the line into fields separated by a comma
+                String[] fields = line.split(",");
+
+                // Check if the first field (the ID) matches the search ID
+                if (fields[0].equals(Integer.toString(searchId))) {
+                    // ID was found, set the flag and print the line
                     idFound = true;
                     System.out.println("*-----MEMBER INFO-----*");
                     System.out.println("");
@@ -214,27 +300,28 @@ public class Member extends User {
                     System.out.println("Cellphone Number: " + fields[6]);
                     System.out.println("Email: " + fields[7]);
 
-                 }
- 
-                 // Read the next line
-                 line = reader.readLine();
-             }
- 
-             // Close the file
-             reader.close();
-         } catch (IOException e) {
-             System.out.println("Error reading file: " + e.getMessage());
-         }
- 
-         // If the ID was not found, print a message
-         if (!idFound) {
-             System.out.println("ID not found in file.");
-         }
+                }
+
+                // Read the next line
+                line = reader.readLine();
+            }
+
+            // Close the file
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+
+        // If the ID was not found, print a message
+        if (!idFound) {
+            System.out.println("ID not found in file.");
+        }
 
     }
+
     @Override
     public void deleteList() {
-        
+
     }
 
 }
