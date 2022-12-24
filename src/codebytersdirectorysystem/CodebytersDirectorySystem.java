@@ -29,9 +29,9 @@ public class CodebytersDirectorySystem {
             switch (operator) {
                 case 'a' -> Methods.registerMember();
                 case 'b' -> Methods.addOfficer();
-                case 'c' -> Methods.displayList();
+                case 'c' -> Methods.displayMembers();
                 case 'd' -> Methods.displayOfficer();
-                case 'e' -> System.out.println("Sample");
+                // case 'e' -> Methods.searchMembers();
                 case 'f' -> System.out.println("Sample");
                 case 'g' -> {
                     loop = "no";

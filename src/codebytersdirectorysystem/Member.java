@@ -7,7 +7,7 @@ public class Member extends User {
     private String dateOfBirth;
     private String cellphoneNumber;
     private String email;
-
+    
     public Member(String memberId, String firstName, String lastName, String middleInitial, String gender, String dateOfBirth, String cellphoneNumber, String email) {
         super(memberId, firstName, lastName, middleInitial);
         this.gender = gender;

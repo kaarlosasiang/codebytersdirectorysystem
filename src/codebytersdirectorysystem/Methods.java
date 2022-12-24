@@ -11,18 +11,18 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Scanner;
-import java.util.StringTokenizer;
+
 
 
 public class Methods {
-
+    
     static ArrayList<Member> mList = new ArrayList<>();
     static ArrayList<Officer> oList = new ArrayList<>();
     static String fileName =  "src/codebytersdirectorysystem/Database/users.txt";
     static Path pathToFile = Paths.get(fileName);
     static Path path = pathToFile.toAbsolutePath();
     static File files = new File(path.toString());
-    // static ListIterator li;//will list the data stored in the text file
+    static ListIterator li;//will list the data stored in the text file
 
     public static void registerMember() {//method for entering data into a file
         
@@ -64,7 +64,7 @@ public class Methods {
         }
 
     }
-    public static void displayList(){
+    public static void displayMembers(){
         if(files.isFile()){//if the file exists will continue to gather its data
             try {
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream(files));
@@ -74,7 +74,7 @@ public class Methods {
                 e.printStackTrace();
             }
             System.out.println("*-----STUDENT LISTS-----*");
-            //gather the object from the list and display its id, name and grade
+            //gather the data from the array
             for(Member ob : mList){
 
                 System.out.println("Member:");
@@ -105,7 +105,7 @@ public class Methods {
         System.out.print("Enter last name: ");
         lastName = scan.nextLine();
 
-        System.out.print("Enter middle initial");
+        System.out.print("Enter middle initial: ");
         middleInitial = scan.nextLine();
 
         System.out.print("Enter schoolyear: ");
@@ -117,7 +117,7 @@ public class Methods {
         try{
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(files));
             oList.add(new Officer(memberId, firstName, lastName, middleInitial, schoolYear, position));
-            // studentList();
+
             oos.writeObject(oList);
             oos.close();
 
@@ -129,14 +129,14 @@ public class Methods {
         if(files.isFile()){//if the file exists will continue to gather its data
             try {
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream(files));
-                oList = (ArrayList<Officer>) ois.readObject();
+                mList = (ArrayList<Member>) ois.readObject();
                 ois.close();
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
             System.out.println("*-----STUDENT LISTS-----*");
-            //gather the object from the list and display its id, name and grade
-            for(Officer ob : oList){
+            //gather data from the array
+            for(Officer ob : oList){ 
 
                 System.out.println("Member:");
                 System.out.println("Id: " + ob.getMemberId());
@@ -147,5 +147,38 @@ public class Methods {
             }
         }
     }
+    //nag libog ko ani na method mo gana sa isa nako na program, pero dre d maka search. try lag debug
+    // public static void searchMembers(){
+    //     Scanner scan = new Scanner(System.in);
+    //     if(files.isFile()){//if the file exists will continue to gather its data
+    //         try {
+    //             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(files));
+    //             mList = (ArrayList<Member>) ois.readObject();
+    //             ois.close();
+    //         } catch (IOException | ClassNotFoundException e) {
+    //             e.printStackTrace();
+    //         }
+
+    //         boolean found = false;
+
+    //         System.out.print("Enter student id eg.(1001): ");
+    //         String id = scan.nextLine();
+
+    //         System.out.println("*-----Member INFO-----*");
+    //         //iterate elements one by one
+    //         li = mList.listIterator();
+    //         while (li.hasNext()) {
+    //             Member members = (Member) li.next();//stores the content of the object student into variable stdnts
+    //             //condition if the id entered is on the file
+    //             if (members.getMemberId() == id) {
+    //                 System.out.println(members);
+    //                 found = true;
+    //             }
+    //         }if(!found)
+    //             System.out.println("Member not found!");
+    //         System.out.println("*----------------------*");
+    //     }else
+    //         System.out.println("File does not exists!");
+    // }
 }
 
