@@ -7,19 +7,17 @@ public class CodebytersDirectorySystem {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        String loop = "yes";
+        boolean isContinue = true;
         do {
             //Shows the system menu
             System.out.println("""
-                                *----Codebyters Officers and Members Directory System----*
-                            
-                                System Menu
-                                *--------------------------------------*  
+
+                                *----------------System Menu---------------*
                                 a. Register member
                                 b. Add officer
                                 c. Display members
                                 d. Display officers
-                                e. Search Members 
+                                e. Search Members
                                 f. Search Officer
                                 g. Exit
                                 """);
@@ -27,20 +25,26 @@ public class CodebytersDirectorySystem {
             char operator = scan.next().charAt(0);
 
             switch (operator) {
-                case 'a' -> Methods.registerMember();
-                case 'b' -> Methods.addOfficer();
-                case 'c' -> Methods.displayMembers();
-                case 'd' -> Methods.displayOfficer();
-                // case 'e' -> Methods.searchMembers();
-                case 'f' -> System.out.println("Sample");
+                case 'a' ->
+                    System.out.println("Sample");
+                case 'b' ->
+                    System.out.println("Sample");
+                case 'c' ->
+                    Methods.displayMembers();
+                case 'd' ->
+                    Methods.displayOfficers();
+                case 'e' ->
+                    System.out.println("Sample");
+                case 'f' ->
+                    System.out.println("Sample");
                 case 'g' -> {
-                    loop = "no";
+                    isContinue = false;
                     System.out.println("Program Terminated");
                 }
                 default ->
                     throw new IllegalStateException("Unexpected value: " + operator);
             }
-        } while ("yes".equals(loop));
-    }  
+        } while (isContinue);
+    }
 
 }

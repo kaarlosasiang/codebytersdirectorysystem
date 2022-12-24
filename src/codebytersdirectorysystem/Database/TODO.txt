@@ -1,0 +1,31 @@
+MEMBERS INFO:
+- school year (officers)
+- id
+- position (officers)
+- first name
+- last name
+- middle initial
+- gender
+- date of birth
+- cell number
+- email
+
+1 apply encapsulation
+2 apply inheritance
+3 apply polymorphism
+4 apply abstraction
+
+D. In the Main class, create corresponding methods for the following operations:
+1 display corresponding menu(s) of operation
+
+2 create list of corresponding objects(s). You may use Collection Interface either ArrayList or LinkedList
+
+3 search items (objects) from the list by 2 or more attributes. Example search item by tagNo, or idNo,
+
+4 display list of all items either horizontal or vertical depending on the boolean value being passed to that method
+
+5 write or update all items in the list to a text file
+
+6 read contents of a file and populate it in a list data structure of a program
+
+7 show data summaries such as total counts of records, the number of males or females to applicable objects, and other applicable data summaries.
