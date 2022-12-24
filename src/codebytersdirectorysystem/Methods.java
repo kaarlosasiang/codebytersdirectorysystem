@@ -61,26 +61,10 @@ public class Methods {
                 Officer.searchOfficer();
         }
     }
-
-//    public static void deleteList() {
-//        Member member = new Member(0, null, null, null, null, null, null, null);
-//        Scanner sc = new Scanner(System.in);
-//        System.out.print("""
-//                            Enter:
-//                            a. Member
-//                            b. Officer
-//                            """);
-//        String option = sc.nextLine().toLowerCase();
-//
-//        switch (option) {
-//            case "a" ->
-//                System.out.println("Sample");
-//            case "b" ->
-//                System.out.println("Sample");
-//        }
-//
-//    }
     public static void updateList() {
+        //Instantiate objects to access abstract methods
+        Member member = new Member();
+        Officer officer = new Officer();
         Scanner sc = new Scanner(System.in);
         System.out.print("""
                             Enter:
@@ -91,9 +75,9 @@ public class Methods {
 
         switch (option) {
             case "a" ->
-                Member.updateList();
+                member.updateList();
             case "b" ->
-                Officer.updateList();
+                officer.updateList();
         }
     }
 }

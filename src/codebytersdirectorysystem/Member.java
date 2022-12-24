@@ -33,6 +33,9 @@ public class Member extends User {
     private static ArrayList<Member> list = new ArrayList<Member>();
 
     //Member constructor
+    public Member(){
+        
+    }
     public Member(int memberId, String firstName, String lastName, String middleInitial, String gender, String dateOfBirth, String cellphoneNumber, String email) {
         super(memberId, firstName, lastName, middleInitial);
         this.gender = gender;
@@ -74,7 +77,8 @@ public class Member extends User {
         return email;
     }
 
-    public static void updateList() {
+    @Override
+    public void updateList() {
         Scanner sc = new Scanner(System.in);
         String tempFile = "src/codebytersdirectorysystem/Database/temp.txt";
         String filePath = "src/codebytersdirectorysystem/Database/members.txt";
@@ -405,9 +409,5 @@ public class Member extends User {
 
     }
 
-    @Override
-    public void deleteList() {
-
-    }
 
 }

@@ -35,6 +35,10 @@ public class Officer extends User {
     //Initialize and array list for storing members
     private static ArrayList<Officer> list = new ArrayList<Officer>();
 
+    //Officer Constructors
+    public Officer(){
+
+    }
     public Officer(int memberId, String firstName, String lastName, String middleInitial, String schoolYear, String position) {
         super(memberId, firstName, lastName, middleInitial);
         this.schoolYear = schoolYear;
@@ -58,8 +62,8 @@ public class Officer extends User {
         return position;
     }
 
-//    @Override
-    public static void updateList() {
+    @Override
+    public void updateList() {
         Scanner sc = new Scanner(System.in);
         String tempFile = "src/codebytersdirectorysystem/Database/temp.txt";
         String filePath = "src/codebytersdirectorysystem/Database/officers.txt";
@@ -269,9 +273,4 @@ public class Officer extends User {
 
     }
 
-    @Override
-    public void deleteList() {
-        // TODO Auto-generated method stub
-
-    }
 }

@@ -55,6 +55,6 @@ abstract class User implements Serializable {
         return middleInitial;
     }
 
-//    public abstract void updateList();
-    public abstract void deleteList();
+   public abstract void updateList();
+
 }
