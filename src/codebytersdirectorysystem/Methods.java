@@ -6,7 +6,7 @@ public class Methods {
     public static void addList(){
         Scanner sc = new Scanner(System.in);
         System.out.print("""
-                        Search:
+                        Enter:
                         a. Member
                         b. Officer
                         """);
@@ -22,7 +22,7 @@ public class Methods {
     public static void displayList(){
             Scanner sc = new Scanner(System.in);
             System.out.print("""
-                            Search:
+                            Enter:
                             a. Member
                             b. Officer
                             """);
@@ -38,7 +38,7 @@ public class Methods {
     public static void searchList(){
         Scanner sc = new Scanner(System.in);
             System.out.print("""
-                            Search:
+                            Enter:
                             a. Member
                             b. Officer
                             """);
@@ -55,7 +55,7 @@ public class Methods {
         Member member = new Member(0, null, null, null, null, null, null, null);
         Scanner sc = new Scanner(System.in);
             System.out.print("""
-                            Search:
+                            Enter:
                             a. Member
                             b. Officer
                             """);
@@ -72,7 +72,7 @@ public class Methods {
     public static void updateList(){
         Scanner sc = new Scanner(System.in);
             System.out.print("""
-                            Search:
+                            Enter:
                             a. Member
                             b. Officer
                             """);
