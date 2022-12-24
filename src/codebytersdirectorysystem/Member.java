@@ -234,51 +234,6 @@ public class Member extends User {
     }
     @Override
     public void deleteList() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter ID: ");
-        int searchId = sc.nextInt();
-        
-      
-
-         // Flag to track if the ID was found
-         boolean idFound = false;
- 
-         try {
-            //File directory
-            Path path = Paths.get("src/codebytersdirectorysystem/Database/members.txt").toAbsolutePath();
-            InputStream inputs = Files.newInputStream(path);
-             // Open the file for reading
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputs));
- 
-             // Read each line of the file
-             String line = reader.readLine();
-             while (line != null) {
-                 // Split the line into fields separated by a comma
-                 String[] fields = line.split(",");
-              
-                 // Check if the first field (the ID) matches the search ID
-                 if (fields[0].equals(Integer.toString(searchId))) {
-                     // ID was found, set the flag and print the line
-                    idFound = true;
-                    list.remove(fields);
-                 }
- 
-                 // Read the next line
-                 line = reader.readLine();
-             }
- 
-             // Close the file
-             reader.close();
-         } catch (IOException e) {
-             System.out.println("Error reading file: " + e.getMessage());
-         }
- 
-         // If the ID was not found, print a message
-         if (!idFound) {
-             System.out.println("ID not found in file.");
-         }
-
         
     }
 
