@@ -26,21 +26,21 @@ public class Methods {
 
     public static void registerMember() {//method for entering data into a file
         
-        String memberId, firstName, lastName, middleName, gender, dateOfBirth, cellphoneNumber, email;
+        String memberId, firstName, lastName, middleInitial, gender, dateOfBirth, cellphoneNumber, email;
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Enter id: ");
         memberId = scan.nextLine();
 
-        System.out.print("Enter first name: ");
+        System.out.println("Enter first name: ");
         firstName = scan.nextLine();
 
-        System.out.print("Enter last name: ");
+        System.out.println("Enter last name");
         lastName = scan.nextLine();
 
-        System.out.print("Enter middle inititial: ");
-        middleName = scan.nextLine();
-
+        System.out.println("Enter middle initial: ");
+        middleInitial = scan.nextLine();
+                
         System.out.print("Enter gender: ");
         gender = scan.nextLine();
 
@@ -55,7 +55,7 @@ public class Methods {
         //Stores the data from user input to a file
         try{
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(files));
-            mList.add(new Member(memberId, firstName, lastName, middleName, gender, dateOfBirth, cellphoneNumber, email));
+            mList.add(new Member(memberId, firstName, lastName, middleInitial, gender, dateOfBirth, cellphoneNumber, email));
             oos.writeObject(mList);
             oos.close();
 
@@ -105,7 +105,7 @@ public class Methods {
         System.out.print("Enter last name: ");
         lastName = scan.nextLine();
 
-        System.out.println("Enter middle initial");
+        System.out.print("Enter middle initial");
         middleInitial = scan.nextLine();
 
         System.out.print("Enter schoolyear: ");

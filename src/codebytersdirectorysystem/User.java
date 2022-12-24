@@ -11,11 +11,13 @@ abstract class User implements Serializable{
 
     public User(String memberId, String firstName, String lastName, String middleInitial){
         this.memberId = memberId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleInitial = middleInitial;
     }
     public void setMemberId(String memberId){
         this.memberId = memberId;
     }
-
     public void setFirstName(String firstName){
         this.firstName = firstName;
     }

@@ -14,7 +14,6 @@ public class Officer extends User{
         this.position = position;
     }
 
-
     // Getter and setter methods for the fields of the officer
     public void setSchoolYear(String schoolYear){
         this.schoolYear = schoolYear;

@@ -19,8 +19,8 @@ public class CodebytersDirectorySystem {
                                 b. Add officer
                                 c. Display members
                                 d. Display officers
-                                e. Display Female 
-                                f. Display Male
+                                e. Search Members 
+                                f. Search Officer
                                 g. Exit
                                 """);
             System.out.print("Enter option: ");
