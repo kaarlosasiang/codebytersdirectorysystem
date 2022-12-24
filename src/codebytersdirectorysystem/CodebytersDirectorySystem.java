@@ -30,7 +30,7 @@ public class CodebytersDirectorySystem {
                 case 'a' -> Methods.registerMember();
                 case 'b' -> Methods.addOfficer();
                 case 'c' -> Methods.displayList();
-                case 'd' -> System.out.println("Sample");
+                case 'd' -> Methods.displayOfficer();
                 case 'e' -> System.out.println("Sample");
                 case 'f' -> System.out.println("Sample");
                 case 'g' -> {

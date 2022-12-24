@@ -13,7 +13,6 @@ import java.util.ListIterator;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-import javax.swing.text.Position;
 
 public class Methods {
 
@@ -57,7 +56,6 @@ public class Methods {
         try{
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(files));
             mList.add(new Member(memberId, firstName, lastName, middleName, gender, dateOfBirth, cellphoneNumber, email));
-            // studentList();
             oos.writeObject(mList);
             oos.close();
 
@@ -95,22 +93,30 @@ public class Methods {
             System.out.println("File not found!");
     }
     public static void addOfficer(){
-        String memberId, position;
-        int schoolYear;
+        String memberId, schoolYear, position, firstName, lastName, middleInitial;
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Enter id: ");
         memberId = scan.nextLine();
         
+        System.out.print("Enter first name: ");
+        firstName = scan.nextLine();
+
+        System.out.print("Enter last name: ");
+        lastName = scan.nextLine();
+
+        System.out.println("Enter middle initial");
+        middleInitial = scan.nextLine();
+
         System.out.print("Enter schoolyear: ");
-        schoolYear = scan.nextInt();
+        schoolYear = scan.nextLine();
 
         System.out.print("Enter position: ");
         position = scan.nextLine();
         //Stores the data from user input to a file
         try{
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(files));
-            oList.add(new Officer(memberId, schoolYear, position));
+            oList.add(new Officer(memberId, firstName, lastName, middleInitial, schoolYear, position));
             // studentList();
             oos.writeObject(oList);
             oos.close();
@@ -119,4 +125,27 @@ public class Methods {
             e.printStackTrace();
         }
     }
+    public static void displayOfficer(){
+        if(files.isFile()){//if the file exists will continue to gather its data
+            try {
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(files));
+                oList = (ArrayList<Officer>) ois.readObject();
+                ois.close();
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            System.out.println("*-----STUDENT LISTS-----*");
+            //gather the object from the list and display its id, name and grade
+            for(Officer ob : oList){
+
+                System.out.println("Member:");
+                System.out.println("Id: " + ob.getMemberId());
+                System.out.println("School Year: " + ob.getSchoolYear());
+                System.out.println("Name: " + ob.getName());
+                System.out.println("Position: " + ob.getPosition());
+                System.out.println("*----------------------*");
+            }
+        }
+    }
 }
+

@@ -5,28 +5,33 @@
 package codebytersdirectorysystem;
 
 public class Officer extends User{
-    private int schoolYear;
+    private String schoolYear;
     private String position;
 
-    public Officer(String memberId, int schoolYear, String position) {
-        super(memberId);
+    public Officer(String memberId, String firstName, String lastName, String middleInitial, String schoolYear, String position) {
+        super(memberId, firstName, lastName, middleInitial);
         this.schoolYear = schoolYear;
         this.position = position;
     }
 
 
     // Getter and setter methods for the fields of the officer
-    public void setSchoolYear(int schoolYear){
+    public void setSchoolYear(String schoolYear){
         this.schoolYear = schoolYear;
     }
     public void setPosition(String position){
         this.position = position;
     }
-    public int getSchoolYear(){
+    public String getSchoolYear(){
         return schoolYear;
     }
     public String getPosition(){
         return  position;
+    }
+    //returns name
+    public String getName(){
+       String name = getFirstName() + " " + getMiddleInitial() + " " +getLastName();
+       return name;
     }
     
 }
