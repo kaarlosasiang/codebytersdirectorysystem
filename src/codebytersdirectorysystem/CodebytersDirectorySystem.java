@@ -25,7 +25,7 @@ public class CodebytersDirectorySystem {
 
             switch (operator) {
                 case 'a' ->
-                    Member.addMember();
+                    Methods.addList();
                 case 'b' ->
                     Methods.displayList();
                 case 'c' ->
