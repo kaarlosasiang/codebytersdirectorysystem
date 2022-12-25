@@ -114,7 +114,7 @@ public class Officer extends User {
             oldFile.delete();
             File dump = new File(filePath);
             newFile.renameTo(dump);
-            System.out.println("Officer Successfully Edited!");
+            System.out.println(ANSI_GREEN + "Officer Successfully Edited!" + ANSI_RESET);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error");
@@ -167,7 +167,7 @@ public class Officer extends User {
             writer.write(id + "," + firstName + "," + lastName + ","
                     + middleInitial + "," + schoolYear + "," + position);
             writer.newLine();
-            System.out.println(ANSI_GREEN + "Member Added!" + ANSI_RESET);
+            System.out.println(ANSI_GREEN + "Officer Added!" + ANSI_RESET);
             writer.close();
             output.close();
 
