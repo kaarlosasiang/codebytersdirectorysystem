@@ -146,7 +146,8 @@ public class Member extends User {
             oldFile.delete();
             File dump = new File(filePath);
             newFile.renameTo(dump);
-            System.out.println("Member Successfully Edited!");
+            
+            System.out.println(ANSI_GREEN + "Member Successfully Edited!" + ANSI_RESET);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error");
