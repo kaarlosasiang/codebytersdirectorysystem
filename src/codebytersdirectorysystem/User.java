@@ -1,8 +1,6 @@
 package codebytersdirectorysystem;
 
-import java.io.Serializable;
-
-abstract class User implements Serializable {
+abstract class User{
 
     private int memberId;
     private String firstName;
